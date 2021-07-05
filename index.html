@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Koç Üni'ye kavuşmamıza son: </title>
+		<style type="text/css">
+		body {
+			background-image: url('background.jpg');
+			background-repeat: no-repeat;
+			background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+			
+		}
+		.gerisayim{
+			position: absolute;;
+			top: 50%;
+			left: 50%;
+			transform : translateX(-50%) translateY(-50%);
+			text-align: center;
+			padding: 10px;
+			color: white;
+		}
+		.info {
+			font-size: 50px;
+		}
+		p {
+  			font-family: georgia, serif; 
+  			font-size: x-large;
+  			color: pink;
+  			}
+		</style>
+	</head>
+	<body>
+		<p>gbm sayaç sunar :d </p>
+		<table class="gerisayim">
+			<tr class="info">
+				<td colspan="4">Şu güzelliğe kavuşmamıza son:</td>
+			</tr>
+			<tr class="info">
+				<td id="gün"></td>
+				<td id="saat"></td>
+				<td id="dakika"></td>
+				<td id="saniye"></td>
+			</tr>
+			<tr>
+				<td>gün</td>
+				<td>saat</td>
+				<td>dakika</td>
+				<td>saniye</td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+
+		   function gerisayim(){
+		   var açılacakzaman = new Date("Sep 26, 2021 23:59:59").getTime();
+           var şimdikizaman= new Date().getTime();    
+           var kalansüre = açılacakzaman - şimdikizaman;
+
+            var gün = Math.floor(kalansüre / (1000 * 60 * 60 * 24));
+  			var saat = Math.floor((kalansüre % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  			var dakika = Math.floor((kalansüre % (1000 * 60 * 60)) / (1000 * 60));
+  			var saniye = Math.floor((kalansüre % (1000 * 60)) / 1000);
+
+			document.getElementById("gün").textContent = gün;
+			document.getElementById("saat").textContent = saat;
+			document.getElementById("dakika").textContent = dakika;
+			document.getElementById("saniye").textContent = saniye;
+
+			if (kalansüre < 0){
+
+			document.getElementById("gün").textContent = 0;
+			document.getElementById("saat").textContent = 0;
+			document.getElementById("dakika").textContent = 0;
+			document.getElementById("saniye").textContent = 0;
+
+			}
+			setTimeout(gerisayim, 1000);
+			} gerisayim();
+		</script>
+	</body>
+</html>
